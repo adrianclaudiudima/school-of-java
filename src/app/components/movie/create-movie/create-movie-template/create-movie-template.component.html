@@ -1,0 +1,41 @@
+<div style="padding: 50px; width: 500px; border-radius: 8px" class="mat-elevation-z2 mat-card">
+  <div class="mat-subheading-1">Create Movie</div>
+  <form fxLayout="column" #movieForm=ngForm>
+
+    <div class="form-group">
+      <label>Movie Name</label>
+      <input
+        [(ngModel)]="newMovie.title"
+        required
+        name="movieTitle"
+        type="text"
+        class="form-control"
+        id="movieTitle"
+        aria-describedby="emailHelp"
+        placeholder="Movie Name ">
+      <small
+        id="movieTitleHelp"
+        class="form-text ">Movie name is required.
+      </small>
+    </div>
+
+    <div class="form-group">
+      <label>Movie genre</label>
+      <input
+        #genreFormControl=ngModel
+        required
+        [(ngModel)]="newMovie.genre"
+        name="movieGenre"
+        type="text"
+        class="form-control"
+        id="movieGenre"
+        aria-describedby="emailHelp"
+        placeholder="Movie Genre">
+      <small id="movieGenreHelp" class="form-text" *ngIf="genreFormControl.hasError('required')">
+        Movie genre is required
+      </small>
+    </div>
+    <button (click)="logForm(movieForm); logForm(newMovie)">Log form</button>
+  </form>
+
+</div>
