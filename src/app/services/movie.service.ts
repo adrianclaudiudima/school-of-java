@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {LoggerService} from './logger.service';
 import {Movie} from '../model/movie.model';
 import {HttpClient} from '@angular/common/http';
-import {Observable, ReplaySubject} from 'rxjs';
+import {ReplaySubject} from 'rxjs';
+import {catchError, concatMap, tap} from 'rxjs/operators';
 
 export interface MoviePayload {
 
@@ -36,22 +37,21 @@ export class MovieService {
         });
   }
 
-  public createMovie(movie: Movie) {
-    this.httpClient.post('URL', JSON.stringify(movie), {
-      responseType: 'text',
-      headers: {'content-type': 'application/json'}
-    }).subscribe(value => {
-      this.loadAllMoviesWithSubject();
-    });
-  }
-
-  public loadAllMovies(): Observable<Array<Movie>> {
-    this.loggerService.logMessage('Loading all movies ...');
-    return this.httpClient.get<Array<Movie>>(this.serverUrl);
-  }
-
-  public removeMovie() {
-    this.loggerService.logMessage('Removing movie ...');
+  public deleteMovie(movieId: number) {
+    this.httpClient.delete(this.serverUrl + movieId)
+      .pipe(
+        tap(v => console.log(v)),
+        concatMap(value => this.httpClient.get<Array<Movie>>(this.serverUrl)),
+        tap(v => console.log(v)),
+        catchError(err => {
+          console.error('failed retrieving movies ');
+          return [];
+        })
+      )
+      .subscribe(value => {
+        this.listOfMovies = value;
+        this.listOfMoviesSubject.next(this.listOfMovies);
+      });
   }
 
 

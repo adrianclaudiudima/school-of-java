@@ -25,12 +25,33 @@
         <div>Movie genre : {{movie.genre}}</div>
 
         <div fxLayout="row" fxLayoutAlign="center center">
-          <button mat-raised-button>DELETE MOVIE</button>
+          <button mat-raised-button (click)="deleteMovie(movie.id)">DELETE MOVIE</button>
         </div>
 
       </div>
     </div>
   </div>
+
+
+  <div fxLayout="row" fxLayoutAlign="center center" style="margin-top: 100px;">
+    <div style="padding: 50px; width: 500px; border-radius: 8px" class="mat-elevation-z2 mat-card">
+      <div class="mat-subheading-1">Create Movie</div>
+      <form fxLayout="column">
+        <input
+          required
+          type="text"
+          name="movieName"
+        >
+
+
+      </form>
+
+    </div>
+
+  </div>
+
 </div>
+
+
 
 

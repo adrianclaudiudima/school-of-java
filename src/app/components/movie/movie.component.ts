@@ -20,12 +20,12 @@ export class MovieComponent implements OnInit {
     this.allMovies$ = this.movieService.listOfMoviesSubject$;
   }
 
-  refreshCount() {
-    this.loggerService.resetLoggedMessages();
-  }
-
   loadMovies() {
     this.movieService.loadAllMoviesWithSubject();
+  }
+
+  deleteMovie(id: number) {
+    this.movieService.deleteMovie(id);
   }
 
 }
