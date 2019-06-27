@@ -55,4 +55,18 @@ export class MovieService {
   }
 
 
+  createMovie(newMovie: Movie) {
+    this.httpClient.post(this.serverUrl + 'addMovie', JSON.stringify(newMovie),
+      {headers: {'Content-Type': 'application/json'}, responseType: 'text'})
+      .pipe(
+        concatMap(v => this.httpClient.get<Array<Movie>>(this.serverUrl)),
+        catchError(err => {
+          console.error('Could not deserialize whatever ');
+          return [];
+        })
+      ).subscribe(value => {
+      this.listOfMovies = value;
+      this.listOfMoviesSubject.next(this.listOfMovies);
+    });
+  }
 }

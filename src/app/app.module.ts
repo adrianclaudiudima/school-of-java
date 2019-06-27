@@ -14,6 +14,7 @@ import {LoggerService} from './services/logger.service';
 import {MovieComponent} from './components/movie/movie.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CreateMovieTemplateComponent} from './components/movie/create-movie/create-movie-template/create-movie-template.component';
+import {CreateMovieReactiveComponent} from './components/movie/create-movie/create-movie-reactive/create-movie-reactive.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {CreateMovieTemplateComponent} from './components/movie/create-movie/crea
     ProductCardReferenceComponent,
     AppHoverDirective,
     MovieComponent,
-    CreateMovieTemplateComponent
+    CreateMovieTemplateComponent,
+    CreateMovieReactiveComponent
   ],
   imports: [
     BrowserModule,
