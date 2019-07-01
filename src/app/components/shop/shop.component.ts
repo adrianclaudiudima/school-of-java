@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../product-card-reference/product.model';
 import {MovieService} from '../../services/movie.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-shop',
@@ -10,7 +11,19 @@ import {MovieService} from '../../services/movie.service';
 export class ShopComponent implements OnInit {
 
 
-  constructor(private movieService: MovieService) {
+  constructor(private movieService: MovieService, private activatedRoute: ActivatedRoute) {
+
+
+    activatedRoute.queryParamMap.subscribe(value => {
+      console.log('Query Param');
+      console.log(value);
+    });
+
+    activatedRoute.paramMap.subscribe(value => {
+      console.log('Param Map ');
+      console.log(value);
+    });
+
 
   }
 

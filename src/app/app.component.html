@@ -1,9 +1,11 @@
 <mat-toolbar color="primary" class="mat-elevation-z1">
-  <span>Online Shop</span>
+  <span routerLink="/">Online Shop</span>
+  <span class="example-fill-remaining-space"></span>
+
+
+  <div class="link" routerLink="/shop" routerLinkActive="route-active" [queryParams]="{'something':'value'}">Shop</div>
+  <div class="link" routerLink="/movie" routerLinkActive="route-active">Movies</div>
+
 </mat-toolbar>
 
-<!--<app-shop></app-shop>-->
-
-<app-movie>
-
-</app-movie>
+<router-outlet></router-outlet>
