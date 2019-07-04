@@ -1,6 +1,23 @@
 <div class="mat-title" appHover>SHOP COMPONENT</div>
 
 
+<div style="margin-bottom: 70px;">
+  <div class="mat-display-1" fxLayout="row" fxLayoutAlign="space-between center">
+    <div>Sub routing</div>
+    <div fxLayout="row" fxLayoutGap="20px">
+      <button mat-raised-button>SHOP PROMOTIONS</button>
+      <button mat-raised-button>SHOP DETAILS</button>
+    </div>
+  </div>
+
+  <div style="max-width: 800px; width: 100%; margin: 0 auto;border: 1px solid black; min-height: 300px;">
+    <router-outlet></router-outlet>
+  </div>
+
+
+</div>
+
+
 <div *ngIf="listOfProducts.length === 0 ">
   Loading products ...
 </div>
@@ -32,5 +49,6 @@
 
 
 </div>
+
 
 

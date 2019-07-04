@@ -4,10 +4,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {MatButtonModule, MatToolbarModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {ShopComponent} from './components/shop/shop.component';
 import {ProductCardComponent} from './components/product-card/product-card.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ProductCardReferenceComponent} from './components/product-card-reference/product-card-reference.component';
 import {AppHoverDirective} from './directives/app-hover.directive';
 import {MovieService} from './services/movie.service';
 import {LoggerService} from './services/logger.service';
@@ -16,14 +14,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {CreateMovieTemplateComponent} from './components/movie/create-movie/create-movie-template/create-movie-template.component';
 import {CreateMovieReactiveComponent} from './components/movie/create-movie/create-movie-reactive/create-movie-reactive.component';
 import {HomeComponent} from './components/home/home.component';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    HomeComponent,
     AppComponent,
-    ShopComponent,
     ProductCardComponent,
-    ProductCardReferenceComponent,
     AppHoverDirective,
     MovieComponent,
     CreateMovieTemplateComponent,
@@ -32,6 +28,7 @@ import {HomeComponent} from './components/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    SharedModule,
     FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
