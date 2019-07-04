@@ -6,7 +6,7 @@ import {HomeComponent} from './components/home/home.component';
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
   },
   {
     path: 'movie',
@@ -14,16 +14,7 @@ const routes: Routes = [
   }, {
     path: 'shop',
     loadChildren: './components/shop/shop.module#ShopModule'
-  }, {
-    path: 'product-preview/:id',
-    loadChildren: 'src/app/components/shop/shop.module#ShopModule'
-  },
-  {
-    path: '**',
-    component: HomeComponent
-  }
-
-];
+  }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

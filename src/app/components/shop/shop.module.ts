@@ -8,9 +8,11 @@ import {ShopRoutingModule} from './shop.routing';
 import {SharedModule} from '../../shared/shared.module';
 import {ShopDetailsComponent} from './components/shop-details/shop-details.component';
 import {ShopPromotionsComponent} from './components/shop-promotions/shop-promotions.component';
+import {ShopHomeComponent} from './components/shop-home/shop-home.component';
 
 @NgModule({
   declarations: [
+    ShopHomeComponent,
     ShopComponent,
     ShopDetailsComponent,
     ShopPromotionsComponent,

@@ -13,7 +13,6 @@ import {MovieComponent} from './components/movie/movie.component';
 import {HttpClientModule} from '@angular/common/http';
 import {CreateMovieTemplateComponent} from './components/movie/create-movie/create-movie-template/create-movie-template.component';
 import {CreateMovieReactiveComponent} from './components/movie/create-movie/create-movie-reactive/create-movie-reactive.component';
-import {HomeComponent} from './components/home/home.component';
 import {SharedModule} from './shared/shared.module';
 
 @NgModule({
@@ -27,14 +26,14 @@ import {SharedModule} from './shared/shared.module';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     SharedModule,
     FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   exports: [],
   providers: [
